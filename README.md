@@ -70,16 +70,20 @@ stocksight/
    cd stocksight
    
 2. Create & activate a virtual environment
+   ```
    python -m venv venv
    source venv/bin/activate  # on Windows: venv\Scripts\activate
 
-3. Install Dependencies
+4. Install Dependencies
+   ```
    pip install -r requirements.txt
 
-4. Run the app
+6. Run the app
+   ```
    python app.py
    
-5. Open server (May have to change port)
+8. Open server (May have to change port)
+   ```
    http://127.0.0.1:5000/
 
 ## 📝 License
