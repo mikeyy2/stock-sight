@@ -38,22 +38,19 @@ StockSight is a deep learning-powered stock forecasting tool that predicts the n
 
 ```
 stocksight/
-├── app/                        # Flask app package
-│   ├── __init__.py             # Initializes Flask app
-│   ├── routes.py               # Route logic
-│   ├── utils.py                # Data fetching, preprocessing helpers
-│   ├── model.py                # Model loading and prediction
-│   ├── templates/              # HTML templates
-│   │   └── index.html          # Main web UI
-│   └── static/                 # (Optional) CSS/JS files
-│
+├── app/                         # Flask app package
+│   ├── app.py                   # Initializes Flask app
+│   ├── templates/               # HTML templates
+│        ├── index.html          # Main web UI
+│        └── error.html          # Error web UI
+│ 
 ├── models/                     # Model + scaler storage
 │   ├── stock_model.keras       # Trained LSTM model
 │   ├── feature_scaler.pkl      # Input scaler
 │   └── target_scaler.pkl       # Output scaler
 │
 ├── notebooks/                  # Notebooks for EDA/training
-│   └── training_notebook.ipynb
+│   └── stock_forecasting.ipynb
 │
 ├── requirements.txt            # Python dependencies
 ├── run.py                      # Flask app entry point
