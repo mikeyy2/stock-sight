@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Next‑Day Forecast</title>
+  <!-- Materialize CSS CDN -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    rel="stylesheet"
+  />
+<style>
+  /* 1. Full reset on margins/padding + border‑box */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2. Make sure html/body fill the viewport and have no overflow */
+  html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg);
+    overflow-x: hidden;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    color: var(--text);
+  }
+
+  /* your existing root vars */
+  :root {
+    --bg: #121212;           /* Deep Charcoal */
+    --primary: #BB86FC;      /* Soft Neon Purple */
+    --secondary: #03DAC6;    /* Cool Teal */
+    --text: #FFFFFF;         /* Pure White */
+  }
+
+  .card-container {
+    max-width: 360px;
+    width: 100%;
+    padding: 1rem;
+  }
+  .card {
+    background: #1E1E1E;
+  }
+  .card-title {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .input-field input,
+  .input-field label {
+    color: var(--text);
+  }
+  .input-field input {
+    border-bottom: 1px solid #444;
+  }
+  .input-field input:focus {
+    border-bottom: 1px solid var(--secondary) !important;
+    box-shadow: 0 1px 0 0 var(--secondary) !important;
+  }
+  .input-field label.active {
+    color: var(--secondary);
+  }
+  .btn {
+    background-color: var(--primary) !important;
+    color: var(--text) !important;
+  }
+  .btn:hover {
+    background-color: #a56be0 !important;
+  }
+  .section p {
+    margin: 0.5em 0;
+  }
+</style>
+
+</head>
+<body>
+  <div class="card-container">
+    <div class="card z-depth-3">
+      <div class="card-content">
+        <span class="card-title center-align">Next‑Day High & Low</span>
+
+        <form method="post">
+          <div class="input-field">
+            <input id="ticker" name="ticker" type="text" required />
+            <label for="ticker">Ticker (e.g. AAPL or ^GSPC)</label>
+          </div>
+
+          {% if error %}
+            <p class="red-text text-darken-2">{{ error }}</p>
+          {% endif %}
+
+          <button class="btn waves-effect waves-light full-width center-align" type="submit">
+            Predict
+          </button>
+        </form>
+
+        {% if high %}
+          <div class="section center-align">
+            <p class="flow-text">Results for <strong>{{ request.form.ticker.upper() }}</strong></p>
+            <p>Next High: <strong>${{ high|round(2) }}</strong></p>
+            <p>Next Low : <strong>${{ low|round(2) }}</strong></p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Materialize JS CDN -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+  ></script>
+</body>
+</html>
