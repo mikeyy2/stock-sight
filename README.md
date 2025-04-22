@@ -73,19 +73,15 @@ stocksight/
    ```
    python -m venv venv
    source venv/bin/activate  # on Windows: venv\Scripts\activate
-
 4. Install Dependencies
    ```
    pip install -r requirements.txt
-
 6. Run the app
    ```
    python app.py
-   
 8. Open server (May have to change port)
    ```
    http://127.0.0.1:5000/
-
 ## 📝 License
 This project is for educational purposes (AI 201X, Iowa State University).
 
