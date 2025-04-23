@@ -63,22 +63,22 @@ stocksight/
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/mikeyy2/stocksight.git
-   cd stocksight
+   git clone https://github.com/mikeyy2/stock-sight.git
+   cd stock-sight
    
 2. Create & activate a virtual environment
    ```
-   python -m venv venv
-   source venv/bin/activate  # on Windows: venv\Scripts\activate
+   python3 -m venv venv
+   source venv/bin/activate # if on Windows : venv\Scripts\activate
 4. Install Dependencies
    ```
    pip install -r requirements.txt
 6. Run the app
    ```
-   python app.py
+   python run.py
 8. Open server (May have to change port)
    ```
-   http://127.0.0.1:5000/
+   http://127.0.0.1:5050/
 ## 📝 License
 This project is for educational purposes (AI 201X, Iowa State University).
 
