@@ -8,9 +8,9 @@ from tensorflow.keras.models import load_model
 app = Flask(__name__)
 
 # load model & scalers once
-model = load_model("../models/stock_model.keras")
-feature_scaler = pickle.load(open("../models/feature_scaler.pkl", "rb"))
-target_scaler  = pickle.load(open("../models/target_scaler.pkl", "rb"))
+model = load_model("models/stock_model.keras")
+feature_scaler = pickle.load(open("models/feature_scaler.pkl", "rb"))
+target_scaler  = pickle.load(open("models/target_scaler.pkl", "rb"))
 N_STEPS        = 50
 
 @app.route("/", methods=["GET","POST"])
@@ -46,5 +46,3 @@ def index():
                            high=high_pred,
                            low=low_pred)
 
-if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5050, debug=False)
